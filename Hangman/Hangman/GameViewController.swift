@@ -9,14 +9,36 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+    @IBOutlet weak var hangmanImage: UIImageView!
+    @IBOutlet weak var incorrectGuessesLabel: UILabel!
+    @IBOutlet weak var guessesLabel: UILabel!
+    
+    
+
+    var hangmanWord = String()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         let hangmanPhrases = HangmanPhrases()
-        var phrase = hangmanPhrases.getRandomPhrase()
+        let phrase = hangmanPhrases.getRandomPhrase()
         print(phrase)
+        var phraseMask = ""
+        for i in phrase.characters.indices {
+            if (phrase[i] == " ") {
+                phraseMask += " "
+                hangmanWord += " "
+            } else {
+                phraseMask += "_ "
+                hangmanWord += String(phrase[i])
+            }
+        }
+        guessesLabel.text = phraseMask
+        hangmanImage.image = UIImage(named: "hangman1.gif")
+        incorrectGuessesLabel.text = "Incorrect Guesses:"
     }
 
     override func didReceiveMemoryWarning() {

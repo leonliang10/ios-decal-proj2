@@ -22,5 +22,4 @@ class HangmanPhrases {
         let index = Int(arc4random_uniform(UInt32(phrases.count)))
         return phrases.objectAtIndex(index) as! String
     }
-    
 }
