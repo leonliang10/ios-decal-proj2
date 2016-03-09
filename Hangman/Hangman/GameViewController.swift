@@ -35,10 +35,10 @@ class GameViewController: UIViewController {
         for i in phrase.characters.indices {
             if (phrase[i] == " ") {
                 phraseMask += " "
-                hangmanWord += " "
+//                hangmanWord += " "
             } else {
                 phraseMask += "_ "
-                hangmanWord += String(phrase[i])
+                hangmanWord += String(phrase[i]).lowercaseString
             }
         }
         hangmanWordArray = Array(hangmanWord.characters)
@@ -59,10 +59,14 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func pressIncorrectButton(sender: AnyObject) {
-        if (validCharacters.contains(userGuessCharacterInput.text!)) {
-            incorrectGuessedCharacters += userGuessCharacterInput.text!
-            incorrectGuessesLabel.text = incorrectGuessedCharacters
-            incorrectGuessedCharacters += ", "
+        let guessedCharacter = userGuessCharacterInput.text!
+        if (validCharacters.contains(guessedCharacter)) {
+            print(hangmanWordArray)
+            if (!hangmanWordArray.contains(Character(guessedCharacter))) {
+                incorrectGuessedCharacters += userGuessCharacterInput.text!
+                incorrectGuessesLabel.text = incorrectGuessedCharacters
+                incorrectGuessedCharacters += ", "
+            }
         }
         
         userGuessCharacterInput.text = ""
