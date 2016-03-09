@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="New Game"/>
                                 <connections>
-                                    <segue destination="WEF-vG-cDw" kind="show" id="5fH-5A-DXE"/>
+                                    <segue destination="WEF-vG-cDw" kind="presentation" id="5fH-5A-DXE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,66 +60,135 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-p8-Jvn">
-                                <rect key="frame" x="180" y="306" width="240" height="128"/>
+                                <rect key="frame" x="180" y="155" width="240" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Guesses: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-Im-3Md">
-                                <rect key="frame" x="226" y="487" width="149" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Incorrect Guesses: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8K-Im-3Md">
+                                <rect key="frame" x="226" y="326" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="_ _ _ _ _ _ _ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qro-N2-k5c">
-                                <rect key="frame" x="20" y="244" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="_ _ _ _ _ _ _ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qro-N2-k5c">
+                                <rect key="frame" x="20" y="84" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzP-sU-Wgb">
-                                <rect key="frame" x="226" y="163" width="52" height="30"/>
-                                <state key="normal" title="Correct"/>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65W-iI-Pld">
-                                <rect key="frame" x="226" y="102" width="149" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa0-aD-pw7">
+                                <rect key="frame" x="20" y="361" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Guess a letter" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLd-Oc-5EI">
+                                <rect key="frame" x="226" y="430" width="149" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQl-6k-q0K">
-                                <rect key="frame" x="313" y="163" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcR-WQ-5gp">
+                                <rect key="frame" x="226" y="488" width="52" height="30"/>
+                                <state key="normal" title="Correct"/>
+                                <connections>
+                                    <action selector="pressCorrectButton:" destination="WEF-vG-cDw" eventType="touchUpInside" id="jIR-IW-xFL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjt-8E-85F">
+                                <rect key="frame" x="313" y="488" width="62" height="30"/>
                                 <state key="normal" title="Incorrect"/>
+                                <connections>
+                                    <action selector="pressIncorrectButton:" destination="WEF-vG-cDw" eventType="touchUpInside" id="qSE-vf-uwd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="top" secondItem="qro-N2-k5c" secondAttribute="bottom" constant="41" id="0Yz-An-qus"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerY" secondItem="bR4-VF-CaM" secondAttribute="centerY" id="6bF-Rc-4bW"/>
+                            <constraint firstItem="Wa0-aD-pw7" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="8VS-AY-uVN"/>
+                            <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="8mG-bY-rZZ"/>
                             <constraint firstItem="qj2-dQ-T9E" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="166" id="9Wk-Kh-CXL"/>
+                            <constraint firstItem="lcR-WQ-5gp" firstAttribute="top" secondItem="NLd-Oc-5EI" secondAttribute="bottom" constant="28" id="9cD-ex-kMO"/>
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="52" id="9qr-7T-L5E"/>
+                            <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="AtW-dY-kns"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="B9G-A3-ETb"/>
+                            <constraint firstItem="lcR-WQ-5gp" firstAttribute="leading" secondItem="NLd-Oc-5EI" secondAttribute="leading" id="BhL-5v-EGX"/>
+                            <constraint firstItem="4nL-p8-Jvn" firstAttribute="top" secondItem="qro-N2-k5c" secondAttribute="bottom" constant="29" id="FrE-FT-Brr"/>
+                            <constraint firstItem="NLd-Oc-5EI" firstAttribute="top" secondItem="Wa0-aD-pw7" secondAttribute="bottom" constant="30" id="HAR-ub-C4U"/>
+                            <constraint firstItem="yjt-8E-85F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lcR-WQ-5gp" secondAttribute="trailing" constant="35" id="HhS-Kb-E6D"/>
+                            <constraint firstItem="Wa0-aD-pw7" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="IBe-bh-ifm"/>
+                            <constraint firstItem="4nL-p8-Jvn" firstAttribute="top" secondItem="qro-N2-k5c" secondAttribute="bottom" constant="50" id="JzX-RD-x1P"/>
+                            <constraint firstItem="yjt-8E-85F" firstAttribute="trailing" secondItem="NLd-Oc-5EI" secondAttribute="trailing" id="N5b-45-02l"/>
+                            <constraint firstItem="NLd-Oc-5EI" firstAttribute="top" secondItem="d8K-Im-3Md" secondAttribute="bottom" constant="50" id="OK2-tQ-EbC"/>
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="53" id="ORx-lT-9oi"/>
+                            <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="OoO-HG-KU3"/>
+                            <constraint firstItem="yjt-8E-85F" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="159" id="QJz-Vl-Ikf"/>
+                            <constraint firstItem="qro-N2-k5c" firstAttribute="top" secondItem="oo8-79-q3s" secondAttribute="bottom" constant="41" id="QxR-jq-bZR"/>
+                            <constraint firstItem="qro-N2-k5c" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="SX5-Js-NXO"/>
                             <constraint firstItem="qj2-dQ-T9E" firstAttribute="top" secondItem="d8K-Im-3Md" secondAttribute="bottom" constant="92" id="SdQ-MB-ZlX"/>
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="TCO-Ho-7Cx"/>
+                            <constraint firstItem="yjt-8E-85F" firstAttribute="top" secondItem="NLd-Oc-5EI" secondAttribute="bottom" constant="28" id="YWV-P0-o28"/>
+                            <constraint firstItem="Wa0-aD-pw7" firstAttribute="top" secondItem="d8K-Im-3Md" secondAttribute="bottom" constant="14" id="ZL0-pt-NK0"/>
+                            <constraint firstItem="yjt-8E-85F" firstAttribute="trailing" secondItem="NLd-Oc-5EI" secondAttribute="trailing" id="Zam-ow-Y7S"/>
                             <constraint firstItem="qro-N2-k5c" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="Zmw-W3-czf"/>
+                            <constraint firstItem="lcR-WQ-5gp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NLd-Oc-5EI" secondAttribute="leading" id="a34-wc-V6K"/>
+                            <constraint firstItem="qro-N2-k5c" firstAttribute="top" secondItem="oo8-79-q3s" secondAttribute="bottom" constant="64" id="bsk-jL-wXW"/>
+                            <constraint firstItem="qj2-dQ-T9E" firstAttribute="top" secondItem="yjt-8E-85F" secondAttribute="bottom" constant="128" id="ct2-eu-ZFV"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="top" secondItem="qro-N2-k5c" secondAttribute="bottom" constant="41" id="cvF-E7-KmE"/>
+                            <constraint firstItem="qj2-dQ-T9E" firstAttribute="top" secondItem="lcR-WQ-5gp" secondAttribute="bottom" constant="128" id="dav-6c-Rfk"/>
+                            <constraint firstItem="d8K-Im-3Md" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="15" id="dgU-bt-Zry"/>
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="fz4-Zc-siW"/>
+                            <constraint firstItem="NLd-Oc-5EI" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="g7o-9R-R5g"/>
                             <constraint firstItem="qro-N2-k5c" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="h2e-SB-nrD"/>
+                            <constraint firstItem="NLd-Oc-5EI" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="jyR-2G-mPj"/>
+                            <constraint firstItem="lcR-WQ-5gp" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="159" id="qgp-h1-MwO"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="svm-qL-v17"/>
+                            <constraint firstItem="qro-N2-k5c" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="swL-do-LMz"/>
+                            <constraint firstItem="NLd-Oc-5EI" firstAttribute="top" secondItem="Wa0-aD-pw7" secondAttribute="bottom" constant="55" id="tYS-g7-a4B"/>
+                            <constraint firstItem="Wa0-aD-pw7" firstAttribute="top" secondItem="d8K-Im-3Md" secondAttribute="bottom" constant="14" id="uuY-go-zVH"/>
+                            <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="xU8-Y2-tX2"/>
+                            <constraint firstItem="d8K-Im-3Md" firstAttribute="top" secondItem="4nL-p8-Jvn" secondAttribute="bottom" constant="30" id="zwp-Na-zjO"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="QxR-jq-bZR"/>
                                 <exclude reference="Zmw-W3-czf"/>
+                                <exclude reference="h2e-SB-nrD"/>
+                                <exclude reference="swL-do-LMz"/>
                                 <exclude reference="0Yz-An-qus"/>
                                 <exclude reference="6bF-Rc-4bW"/>
+                                <exclude reference="B9G-A3-ETb"/>
+                                <exclude reference="FrE-FT-Brr"/>
+                                <exclude reference="OoO-HG-KU3"/>
+                                <exclude reference="cvF-E7-KmE"/>
                                 <exclude reference="svm-qL-v17"/>
+                                <exclude reference="8VS-AY-uVN"/>
+                                <exclude reference="ZL0-pt-NK0"/>
+                                <exclude reference="8mG-bY-rZZ"/>
                                 <exclude reference="9qr-7T-L5E"/>
+                                <exclude reference="ORx-lT-9oi"/>
+                                <exclude reference="TCO-Ho-7Cx"/>
                                 <exclude reference="fz4-Zc-siW"/>
+                                <exclude reference="zwp-Na-zjO"/>
+                                <exclude reference="HAR-ub-C4U"/>
+                                <exclude reference="OK2-tQ-EbC"/>
+                                <exclude reference="jyR-2G-mPj"/>
+                                <exclude reference="a34-wc-V6K"/>
+                                <exclude reference="qgp-h1-MwO"/>
+                                <exclude reference="HhS-Kb-E6D"/>
+                                <exclude reference="QJz-Vl-Ikf"/>
+                                <exclude reference="Zam-ow-Y7S"/>
                                 <exclude reference="9Wk-Kh-CXL"/>
+                                <exclude reference="SdQ-MB-ZlX"/>
+                                <exclude reference="ct2-eu-ZFV"/>
+                                <exclude reference="dav-6c-Rfk"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="guessesLabel" destination="qro-N2-k5c" id="3e7-bj-QM8"/>
+                        <outlet property="correctGuessCharacterDisplay" destination="qro-N2-k5c" id="RnY-TR-BR4"/>
                         <outlet property="hangmanImage" destination="4nL-p8-Jvn" id="xf5-nt-75Y"/>
-                        <outlet property="incorrectGuessesLabel" destination="d8K-Im-3Md" id="soz-y0-X8j"/>
+                        <outlet property="incorrectGuessesLabel" destination="Wa0-aD-pw7" id="KWG-z1-BOg"/>
+                        <outlet property="userGuessCharacterInput" destination="NLd-Oc-5EI" id="fnV-Sd-Z6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50v-iN-nok" userLabel="First Responder" sceneMemberID="firstResponder"/>
