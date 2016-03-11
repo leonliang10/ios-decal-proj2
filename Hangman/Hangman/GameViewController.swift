@@ -46,6 +46,7 @@ class GameViewController: UIViewController {
         hangmanWord = ""
         incorrectGuessedCharacters = [Character]()
         userGuessCharacterInput.text = ""
+        incorrectGuessedCharactersForDisplay = ""
     }
     
     func newGame() {
@@ -142,8 +143,8 @@ class GameViewController: UIViewController {
             correctGuessCharacterDisplay.text = phraseMask
             if ((numberOfCorrectGuesses + numberOfSpacesInHangManWord) == hangmanWordArray.count) {
                 let winAlert = UIAlertController(title: "You're the Champion!", message: " Great job! Press Start Over to guess the same word. Press New Game to guess a new word.", preferredStyle: UIAlertControllerStyle.Alert)
-                let hellYeahButton = UIAlertAction(title: "Hell Yeah!", style: .Default, handler: nil)
-                winAlert.addAction(hellYeahButton)
+                let hellYeahAction = UIAlertAction(title: "Hell Yeah!", style: .Default, handler: nil)
+                winAlert.addAction(hellYeahAction)
                 showViewController(winAlert, sender: self)
                 finishedGame = true
             }
@@ -162,14 +163,17 @@ class GameViewController: UIViewController {
             if (numberOfIncorrectGuesses < 7) {
                 hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
             } else {
-                let loseAlert = UIAlertController(title: "You lose!", message: "Press Start Over to guess the same word. Press New Game to guess a new word.", preferredStyle: UIAlertControllerStyle.Alert)
-                let doneButton = UIAlertAction(title: "Done", style: .Default, handler: nil)
-                loseAlert.addAction(doneButton)
+                let loseAlert = UIAlertController(title: "You lose!", message: "Press New Game to guess a new word. Press Start Over to guess the same word.", preferredStyle: UIAlertControllerStyle.Alert)
+                let doneAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                let newGameAction = UIAlertAction(title: "New Game", style: .Default, handler: {(act: UIAlertAction) -> Void in self.newGame()})
+                loseAlert.addAction(doneAction)
+                loseAlert.addAction(newGameAction)
                 showViewController(loseAlert, sender: self)
                 finishedGame = true
             }
         }
     }
+
     
     /*
     // MARK: - Navigation
