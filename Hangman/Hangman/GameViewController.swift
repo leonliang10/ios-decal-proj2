@@ -22,6 +22,8 @@ class GameViewController: UIViewController {
     var incorrectGuessedCharactersForDisplay = ""
     var phraseMask = ""
     var hangmanWordArray = [Character]()
+    var uniqueCharacterArray = [Character]()
+    var uniqueCharacterFrequencyArray = [Int]()
     var correctGuessedCharacters = [Character]()
     var incorrectGuessedCharacters = [Character]()
     var numberOfIncorrectGuesses = 0
@@ -47,13 +49,14 @@ class GameViewController: UIViewController {
         incorrectGuessedCharacters = [Character]()
         userGuessCharacterInput.text = ""
         incorrectGuessedCharactersForDisplay = ""
+        uniqueCharacterArray = [Character]()
+        uniqueCharacterFrequencyArray = [Int]()
     }
     
     func newGame() {
         let hangmanPhrases = HangmanPhrases()
         let phrase = hangmanPhrases.getRandomPhrase()
         print(phrase)
-    
         reset()
         for i in phrase.characters.indices {
             if (phrase[i] == " ") {
@@ -64,8 +67,9 @@ class GameViewController: UIViewController {
                 hangmanWord += String(phrase[i]).lowercaseString
             }
         }
-        hangmanWordArray = Array(hangmanWord.characters)
         
+        hangmanWordArray = Array(hangmanWord.characters)
+        updateHintUniqueArrays()
         correctGuessCharacterDisplay.text = phraseMask
         hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
         incorrectGuessesLabel.text = ""
@@ -80,10 +84,50 @@ class GameViewController: UIViewController {
                 phraseMask += "_ "
             }
         }
-        
+        updateHintUniqueArrays()
         correctGuessCharacterDisplay.text = phraseMask
         hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
         incorrectGuessesLabel.text = ""
+    }
+    
+    func updateHintUniqueArrays() {
+        var index = 0
+        for (var i = 0; i < hangmanWordArray.count; i++) {
+            if uniqueCharacterArray.contains(hangmanWordArray[i]) {
+                index = uniqueCharacterArray.indexOf(hangmanWordArray[i])!
+                uniqueCharacterFrequencyArray[index] += 1
+            } else {
+                if (hangmanWordArray[i] != Character(" ")) {
+                    uniqueCharacterArray.append(hangmanWordArray[i])
+                    uniqueCharacterFrequencyArray.append(1)
+                }
+            }
+        }
+    }
+    
+    func useHint() {
+        var maxIndex = uniqueCharacterFrequencyArray.count + 1
+        var minFrequency = -1
+        print(uniqueCharacterArray)
+        print(uniqueCharacterFrequencyArray)
+        for (var i = 0; i < uniqueCharacterFrequencyArray.count; i++) {
+            if (uniqueCharacterFrequencyArray[i] > minFrequency) {
+                minFrequency = uniqueCharacterFrequencyArray[i]
+                maxIndex = i
+            }
+        }
+        updateCorrectCharacters(String(uniqueCharacterArray[maxIndex]))
+        numberOfIncorrectGuesses += 1
+        if (numberOfIncorrectGuesses < hangmanPictures.count) {
+            hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
+        }
+        numberOfIncorrectGuesses += 1
+        if (numberOfIncorrectGuesses < hangmanPictures.count) {
+            hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
+        }
+        print(uniqueCharacterArray)
+        print(uniqueCharacterFrequencyArray)
+        print(numberOfIncorrectGuesses)
     }
 
     @IBAction func pressNewGameButton(sender: AnyObject) {
@@ -123,6 +167,7 @@ class GameViewController: UIViewController {
     func updateCorrectCharacters(guessedCharacter: String) {
         if (!correctGuessedCharacters.contains(Character(guessedCharacter))) {
             correctGuessedCharacters.append(Character(guessedCharacter))
+            updateUniqueCharacterArrays(guessedCharacter)
             phraseMask = ""
             var numberOfCorrectGuesses = 0
             var numberOfSpacesInHangManWord = 0
@@ -151,6 +196,19 @@ class GameViewController: UIViewController {
         }
     }
     
+    func updateUniqueCharacterArrays(guessedCharacter: String) {
+        var index = uniqueCharacterArray.count + 1
+        for (var i = 0; i < uniqueCharacterArray.count; i++) {
+            if (uniqueCharacterArray[i] == Character(guessedCharacter)) {
+                index = i
+            }
+        }
+        if (index < uniqueCharacterArray.count) {
+            uniqueCharacterArray.removeAtIndex(index)
+            uniqueCharacterFrequencyArray.removeAtIndex(index)
+        }
+    }
+    
     func updateIncorrectCharacts(guessedCharacter: String) {
         if (incorrectGuessedCharacters.contains(Character(guessedCharacter))) {
             return
@@ -160,7 +218,7 @@ class GameViewController: UIViewController {
             incorrectGuessesLabel.text = incorrectGuessedCharactersForDisplay
             incorrectGuessedCharactersForDisplay += ", "
             numberOfIncorrectGuesses += 1
-            if (numberOfIncorrectGuesses < 7) {
+            if (numberOfIncorrectGuesses < hangmanPictures.count - 1) {
                 hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
             } else {
                 let loseAlert = UIAlertController(title: "You lose!", message: "Press New Game to guess a new word. Press Start Over to guess the same word.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -174,6 +232,21 @@ class GameViewController: UIViewController {
         }
     }
 
+    @IBAction func pressHintButton(sender: AnyObject) {
+        if (numberOfIncorrectGuesses + 2 < hangmanPictures.count - 1) {
+            let hintAlert = UIAlertController(title: "Hint?", message: "A hint will cost you 2 incorrect guesses but will reveal the most used character that you have not guessed. Press confirm to use a hint. Press cancel to go back.", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler: nil)
+            let confirmAction = UIAlertAction(title: "Use Hint!", style: .Default, handler: {(act: UIAlertAction) -> Void in self.useHint()})
+            hintAlert.addAction(cancelAction)
+            hintAlert.addAction(confirmAction)
+            showViewController(hintAlert, sender: self)
+        } else {
+            let hintAlert = UIAlertController(title: "Hint?", message: "You no longer have enough guesses to use a hint. Good luck getting the last characters correct!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK :(", style: .Default, handler: nil)
+            hintAlert.addAction(okAction)
+            showViewController(hintAlert, sender: self)
+        }
+    }
     
     /*
     // MARK: - Navigation

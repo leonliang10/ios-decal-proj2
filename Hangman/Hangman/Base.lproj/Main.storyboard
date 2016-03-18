@@ -107,6 +107,13 @@
                                     <action selector="pressStartOverButton:" destination="WEF-vG-cDw" eventType="touchUpInside" id="oDn-Rw-Qip"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXb-2p-JbK">
+                                <rect key="frame" x="417" y="430" width="30" height="30"/>
+                                <state key="normal" title="Hint"/>
+                                <connections>
+                                    <action selector="pressHintButton:" destination="WEF-vG-cDw" eventType="touchUpInside" id="bS2-wH-gvJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,6 +128,7 @@
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="AtW-dY-kns"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="B9G-A3-ETb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kRD-ML-8gn" secondAttribute="leading" id="Cnd-Bo-mvY"/>
+                            <constraint firstItem="gXb-2p-JbK" firstAttribute="leading" secondItem="NLd-Oc-5EI" secondAttribute="trailing" constant="42" id="ESl-8f-p58"/>
                             <constraint firstItem="4nL-p8-Jvn" firstAttribute="top" secondItem="qro-N2-k5c" secondAttribute="bottom" constant="29" id="FrE-FT-Brr"/>
                             <constraint firstItem="NLd-Oc-5EI" firstAttribute="top" secondItem="Wa0-aD-pw7" secondAttribute="bottom" constant="30" id="HAR-ub-C4U"/>
                             <constraint firstItem="Wa0-aD-pw7" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="IBe-bh-ifm"/>
@@ -145,6 +153,7 @@
                             <constraint firstItem="d8K-Im-3Md" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="fz4-Zc-siW"/>
                             <constraint firstItem="NLd-Oc-5EI" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="g7o-9R-R5g"/>
                             <constraint firstItem="qro-N2-k5c" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="h2e-SB-nrD"/>
+                            <constraint firstItem="gXb-2p-JbK" firstAttribute="top" secondItem="Wa0-aD-pw7" secondAttribute="bottom" constant="48" id="ijY-as-L1b"/>
                             <constraint firstItem="NLd-Oc-5EI" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="jyR-2G-mPj"/>
                             <constraint firstItem="zrP-Fk-eZV" firstAttribute="centerX" secondItem="bR4-VF-CaM" secondAttribute="centerX" id="njX-t7-Sit"/>
                             <constraint firstItem="zrP-Fk-eZV" firstAttribute="top" secondItem="NLd-Oc-5EI" secondAttribute="bottom" constant="18" id="sYu-lC-ROS"/>
