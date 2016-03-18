@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
     func newGame() {
         let hangmanPhrases = HangmanPhrases()
         let phrase = hangmanPhrases.getRandomPhrase()
-        print(phrase)
+//        print(phrase)
         reset()
         for i in phrase.characters.indices {
             if (phrase[i] == " ") {
@@ -108,8 +108,8 @@ class GameViewController: UIViewController {
     func useHint() {
         var maxIndex = uniqueCharacterFrequencyArray.count + 1
         var minFrequency = -1
-        print(uniqueCharacterArray)
-        print(uniqueCharacterFrequencyArray)
+//        print(uniqueCharacterArray)
+//        print(uniqueCharacterFrequencyArray)
         for (var i = 0; i < uniqueCharacterFrequencyArray.count; i++) {
             if (uniqueCharacterFrequencyArray[i] > minFrequency) {
                 minFrequency = uniqueCharacterFrequencyArray[i]
@@ -125,9 +125,9 @@ class GameViewController: UIViewController {
         if (numberOfIncorrectGuesses < hangmanPictures.count) {
             hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
         }
-        print(uniqueCharacterArray)
-        print(uniqueCharacterFrequencyArray)
-        print(numberOfIncorrectGuesses)
+//        print(uniqueCharacterArray)
+//        print(uniqueCharacterFrequencyArray)
+//        print(numberOfIncorrectGuesses)
     }
 
     @IBAction func pressNewGameButton(sender: AnyObject) {
