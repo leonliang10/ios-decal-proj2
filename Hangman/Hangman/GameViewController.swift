@@ -221,6 +221,7 @@ class GameViewController: UIViewController {
             if (numberOfIncorrectGuesses < hangmanPictures.count - 1) {
                 hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
             } else {
+                hangmanImage.image = UIImage(named: hangmanPictures[numberOfIncorrectGuesses])
                 let loseAlert = UIAlertController(title: "You lose!", message: "Press New Game to guess a new word. Press Start Over to guess the same word.", preferredStyle: UIAlertControllerStyle.Alert)
                 let doneAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 let newGameAction = UIAlertAction(title: "New Game", style: .Default, handler: {(act: UIAlertAction) -> Void in self.newGame()})
